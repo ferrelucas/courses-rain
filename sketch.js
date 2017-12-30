@@ -20,7 +20,7 @@ function draw() {
   scale(-1,1);
   image(capture, 0, 0, 320, 240);
   pop()
-  filter('INVERT', rSlider.value()/100);
+  filter('INVERT');
   
   push()
   translate(capture.width, 0);
