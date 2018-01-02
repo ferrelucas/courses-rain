@@ -1,7 +1,8 @@
 var capture;
+var hit = false;
 
 function setup() {
-  createCanvas(1000, 240);
+  createCanvas(1000, 540);
   capture = createCapture(VIDEO);
   capture.size(320, 240);
   capture.hide();
@@ -14,9 +15,18 @@ function setup() {
 }
 
 function draw() {
+
+  noStroke();
+  fill('purple')
+  rect(400,100,200,100);
+
+  hit = collidePointRect(mouseX,mouseY,400,100,200,100);
+  if (hit) {
+    console.log('entrou');
+  }
   background(255);
   push()
-  translate(capture.width * posSlider.value()/100, 0);
+  translate(capture.width, 0);
   scale(-1,1);
   image(capture, 0, 0, 320, 240);
   pop()
